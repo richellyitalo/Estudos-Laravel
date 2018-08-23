@@ -1,25 +1,25 @@
 @extends('adminlte::page')
 
-@section('title', 'Saldo')
+@section('title', 'Transferir')
 
 @section('content_header')
-    <h1>Depósito</h1>
+    <h1>Transferir</h1>
 @stop
 
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3>Depositar</h3>
+            <h3>Transferir</h3>
         </div>
         <div class="box-body">
             @include('admin.elements.alerts')
-            <form action="{{ route('admin.depositStore') }}" method="POST">
+            <form action="{{ route('admin.confirm.transfer') }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <input type="text" name="amount" class="form-control" placeholder="Valor da recarga">
+                    <input type="text" name="email" class="form-control" placeholder="Informe e-mail do recebedor">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Recarregar</button>
+                    <button type="submit" class="btn btn-success">Avançar</button>
                 </div>
             </form>
         </div>
