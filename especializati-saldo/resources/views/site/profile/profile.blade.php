@@ -11,7 +11,12 @@
     @if (session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
-    <form action="{{ route('admin.profile.update') }}" method="post" class="form">
+    <form 
+        action="{{ route('admin.profile.update') }}" 
+        method="post" 
+        class="form" 
+        enctype="multipart/form-data"
+    >
         {!! csrf_field() !!}
         <div class="form-group">
             <label for="">
@@ -35,7 +40,7 @@
             <label for="">
                 Imagem
             </label>
-            <input type="file" name="file" class="form-control">
+            <input type="file" name="image" class="form-control">
         </div>
         <div class="form-group">
             <button class="btn btn-success">Atualizar meus dados</button>
