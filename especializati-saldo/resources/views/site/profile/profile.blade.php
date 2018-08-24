@@ -5,12 +5,7 @@
 @section('content')
     <h1>Meu Perfil</h1>
     <a href="{{ route('admin.home') }}">Voltar ao admin</a>
-    @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-    @if (session('error'))
-        <div class="alert alert-danger">{{ session('error') }}</div>
-    @endif
+    @include ('admin.elements.alerts')
     <form 
         action="{{ route('admin.profile.update') }}" 
         method="post" 
@@ -28,7 +23,7 @@
             <label for="">
                 E-mail
             </label>
-            <input type="text" email="email" class="form-control" value="{{ auth()->user()->email }}">
+            <input type="text" name="email" class="form-control" value="{{ auth()->user()->email }}">
         </div>
         <div class="form-group">
             <label for="">
@@ -36,6 +31,13 @@
             </label>
             <input type="password" name="new_password" class="form-control">
         </div>
+        @if (auth()->user()->image != null)
+            <img src="{{ url('storage/users/' . auth()->user()->image) }}" alt=""
+                style="max-width: 150px;"
+            >
+        @else
+            <div class="alert alert-warning">Perfil sem imagem</div>
+        @endif
         <div class="form-group">
             <label for="">
                 Imagem
