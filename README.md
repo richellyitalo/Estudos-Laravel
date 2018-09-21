@@ -11,7 +11,8 @@ Cursos básicos e avançados para o entendimento do framework
 
 # JWT (TymonDesign)
 * Para instalar a versão do último commit:
-* `composer require tymon/jwt-auth:dev-branch#hash-docommit`
+* `composer require tymon/jwt-auth:dev-BRANCH#HASH-COMMIT`
 * `composer require tymon/jwt-auth:dev-develop#e190b6a75372e7e5e3a6d2cf0e4456313412299f`
 * Em `config/auth.php` alterar na chave **api** o driver de **token** para **jwt**
 * No terminal: `php artisan jwt:secret`
+* Para corrigir o problema de **Route [login]**, execute php artisan `make:auth`
